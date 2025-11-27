@@ -1,0 +1,8 @@
+body { background: #f7fafb; color: #222; font-family: 'Open Sans', sans-serif; }
+.accent { color: #1e88e5; }
+.headshot { max-width: 200px; border-radius: 50%; background: #ececec; }
+.section { padding: 4rem 0; }
+.hero { background: #e3f2fd; }
+.icon { font-size: 1.5rem; margin-right: 0.5em; color: #4caf50; }
+.card-img { height: 80px; background: #ececec; display: flex; align-items: center; justify-content: center; }
+footer { border-top: 1px solid #eee; }
