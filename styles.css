@@ -1,8 +1,135 @@
-body { background: #f7fafb; color: #222; font-family: 'Open Sans', sans-serif; }
-.accent { color: #1e88e5; }
-.headshot { max-width: 200px; border-radius: 50%; background: #ececec; }
-.section { padding: 4rem 0; }
-.hero { background: #e3f2fd; }
-.icon { font-size: 1.5rem; margin-right: 0.5em; color: #4caf50; }
-.card-img { height: 80px; background: #ececec; display: flex; align-items: center; justify-content: center; }
-footer { border-top: 1px solid #eee; }
+/* =========================
+   Global Styles
+========================= */
+body {
+  background: #f7fafb;
+  color: #222;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.accent {
+  color: #1e88e5;
+}
+
+/* =========================
+   Headshot / Hero
+========================= */
+.headshot {
+  max-width: 200px;
+  border-radius: 50%;
+  background: #ececec;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.hero {
+  background: #e3f2fd;
+  text-align: center;
+  padding: 6rem 2rem;
+}
+
+/* =========================
+   Icons
+========================= */
+.icon {
+  font-size: 1.5rem;
+  margin-right: 0.5em;
+  color: #4caf50;
+}
+
+/* =========================
+   Portfolio / Cards
+========================= */
+.portfolio-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 2rem 0;
+}
+
+.portfolio-box {
+  width: 300px;                 /* box width */
+  border: 2px solid #1e88e5;   /* blue outline */
+  border-radius: 10px;          /* rounded corners */
+  padding: 15px;
+  background: #fff;
+  text-align: center;
+  box-sizing: border-box;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.portfolio-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0; /* rounded top corners */
+  margin-bottom: 10px;          /* space between image and text */
+}
+
+.portfolio-box p {
+  margin: 0;
+  font-size: 14px;
+  color: #222;
+}
+
+/* Light blue border around portfolio rows */
+.portfolio-row {
+  border: 2px solid #e3f2fd; /* light blue border */
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 40px; /* space between boxes */
+  background: #f7fbff; /* optional light blue background */
+}
+
+/* Keep cards rounded inside the blue box */
+.portfolio-card {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+
+
+/* Hover effect for portfolio boxes */
+.portfolio-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Optional placeholder for icons inside cards */
+.card-img {
+  height: 80px;
+  background: #ececec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   Footer
+========================= */
+footer {
+  border-top: 1px solid #eee;
+  padding: 2rem;
+  text-align: center;
+  background: #fff;
+  font-size: 14px;
+  color: #555;
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 768px) {
+  .portfolio-box {
+    width: 90%;
+  }
+}
+
+
+
+
