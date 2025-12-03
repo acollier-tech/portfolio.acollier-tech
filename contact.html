@@ -24,33 +24,48 @@
       </div>
     </div>
   </nav>
+
   <section class="section bg-white">
     <div class="container mt-4">
       <h2 class="accent mb-4">Let’s Talk About Improving Your Operations</h2>
       <div class="row">
         <div class="col-md-6">
-          <form action="https://formsubmit.co/allancollier@live.ca" method="POST">
+          <form id="contactForm" action="https://formsubmit.co/allancollier@live.ca" method="POST">
+            <!-- Hidden fields for FormSubmit -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New message from Allan Collier Portfolio">
+
             <div class="mb-3">
               <label for="name" class="form-label">Name</label>
-              <input type="text" id="name" class="form-control" required>
+              <input type="text" id="name" name="name" class="form-control" required>
             </div>
+
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>
-              <input type="email" id="email" class="form-control" required>
+              <input type="email" id="email" name="email" class="form-control" required>
             </div>
+
             <div class="mb-3">
               <label for="company" class="form-label">Company / Role</label>
-              <input type="text" id="company" class="form-control">
+              <input type="text" id="company" name="company" class="form-control">
             </div>
+
             <div class="mb-3">
               <label for="message" class="form-label">Message</label>
-              <textarea id="message" class="form-control" rows="3" required></textarea>
+              <textarea id="message" name="message" class="form-control" rows="3" required></textarea>
             </div>
+
             <button type="submit" class="btn btn-primary">Send Message</button>
             <a href="Allan_Collier_Professional_Portfolio.pdf" class="btn btn-outline-primary ms-2" download>Download PDF Portfolio</a>
             <a href="https://www.linkedin.com/in/allan-collier-203538144/" target="_blank" class="btn btn-outline-info ms-2">Connect on LinkedIn</a>
+
+            <!-- Inline thank-you message -->
+            <div id="thankYouMessage" style="display:none; margin-top:15px;" class="alert alert-success">
+              Thank you! I look forward to reading your message!
+            </div>
           </form>
         </div>
+
         <div class="col-md-6 text-center">
           <div style="height: 120px; display: flex; justify-content: left; align-items: left;">
             <img src="neural_network.jpg" alt="Neural Network" style="max-height: 125%; max-width: 125%; object-fit: contain;">
@@ -59,8 +74,52 @@
       </div>
     </div>
   </section>
+
   <footer class="bg-white py-4 text-center mt-5">
     <small>&copy; Allan Collier – Portfolio</small>
   </footer>
+
+<!-- Inline form submission script with auto-hide thank-you -->
+<!-- Inline form submission script with fade-out thank-you -->
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault(); // Stop the default form submission
+  const form = e.target;
+
+  fetch(form.action, {
+    method: form.method,
+    body: new FormData(form),
+  })
+  .then(response => {
+    if (response.ok) {
+      const thankYou = document.getElementById('thankYouMessage');
+      thankYou.style.opacity = '1';
+      thankYou.style.display = 'block';
+      form.reset(); // clear the form
+
+      // Start fade-out after 5 seconds
+      setTimeout(() => {
+        let opacity = 1;
+        const fadeInterval = setInterval(() => {
+          opacity -= 0.05;
+          if (opacity <= 0) {
+            clearInterval(fadeInterval);
+            thankYou.style.display = 'none';
+            thankYou.style.opacity = '1'; // reset for next time
+          } else {
+            thankYou.style.opacity = opacity;
+          }
+        }, 50); // 50ms intervals for smooth fade
+      }, 5000); // Wait 5 seconds before fading
+    } else {
+      alert("Oops! Something went wrong. Please try again.");
+    }
+  })
+  .catch(error => {
+    alert("Oops! Something went wrong. Please try again.");
+    console.error(error);
+  });
+});
+</script>
 </body>
 </html>
